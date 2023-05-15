@@ -1,0 +1,18 @@
+#!/bin/bash
+
+echo "HOSTNAME = $(hostname)"
+echo "TIMEZONE = $(cat /etc/timezone) UTC $(date +"%Z")"
+echo "USER = $(whoami)"
+echo "OS = $(cat /etc/issue | awk '{printf("%s %s %s", $1, $2, $3);}')"
+echo "DATE = $(date +"%d %b %Y %H:%M:%S")"
+echo "UPTIME = $(uptime -p | awk '{print $2" "$3" "$4" "$5}')"
+echo "UPTIME_SEC = $(cat /proc/uptime | awk '{print $1" sec"}')"
+echo "IP = $(hostname -I)"
+echo "MASK = $(route -n | awk 'NR==4{print $3}')"
+echo "GATEWAY = $(route -n | awk 'NR==3{print $2}')"
+echo "RAM_TOTAL = $(free -m | awk 'NR==2{printf "%.3f GB", $2/1024}')"
+echo "RAM_USED = $(free -m | awk 'NR==2{printf "%.3f GB", $3/1024}')"
+echo "RAM_FREE = $(free -m | awk 'NR==2{printf "%.3f GB", $4/1024}')"
+echo "SPACE_ROOT = $(df -m /root/ | awk '/\/$/ {printf("%.2f MB",$2/1024)}')"
+echo "SPACE_ROOT_USER = $(df -m /root/ | awk '/\/$/ {printf("%.2f MB",$3/1024)}')"
+echo "SPACE_ROOT_USER = $(df -m /root/ | awk '/\/$/ {printf("%.2f MB",$4/1024)}')"
