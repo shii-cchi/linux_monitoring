@@ -8,4 +8,5 @@ if [ $# -ne 1 ]; then
     fi
 else
     bash script.sh $1
+    chmod +x script.sh
 fi
