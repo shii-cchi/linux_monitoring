@@ -16,22 +16,32 @@ FONT_BLUE_COLOR='\033[36m'
 FONT_PURPLE_COLOR='\033[35m'
 FONT_BLACK_COLOR='\033[30m'
 
-case "$1"  in
-1) echo -en $BG_WHITE_COLOR;;
-2) echo -en $BG_RED_COLOR;;
-3) echo -en $BG_GREEN_COLOR;;
-4) echo -en $BG_BLUE_COLOR;;
-5) echo -en $BG_PURPLE_COLOR;;
-6) echo -en $BG_BLACK_COLOR;;
-*) echo -en $DEFAULT;;
-esac
+function get_bg_color {
+    bg_color='\033[0m'
 
-case "$2"  in
-1) echo -en $FONT_WHITE_COLOR;;
-2) echo -en $FONT_RED_COLOR;;
-3) echo -en $FONT_GREEN_COLOR;;
-4) echo -en $FONT_BLUE_COLOR;;
-5) echo -en $FONT_PURPLE_COLOR;;
-6) echo -en $FONT_BLACK_COLOR;;
-*) echo -en $DEFAULT;;
-esac
+    case "$1"  in
+        1) bg_color=$BG_WHITE_COLOR;;
+        2) bg_color=$BG_RED_COLOR;;
+        3) bg_color=$BG_GREEN_COLOR;;
+        4) bg_color=$BG_BLUE_COLOR;;
+        5) bg_color=$BG_PURPLE_COLOR;;
+        6) bg_color=$BG_BLACK_COLOR;;
+    esac
+
+    echo $bg_color
+}
+
+function get_font_color {
+    font_color='\033[0m'
+
+    case "$1"  in
+        1) font_color=$FONT_WHITE_COLOR;;
+        2) font_color=$FONT_RED_COLOR;;
+        3) font_color=$FONT_GREEN_COLOR;;
+        4) font_color=$FONT_BLUE_COLOR;;
+        5) font_color=$FONT_PURPLE_COLOR;;
+        6) font_color=$FONT_BLACK_COLOR;;
+    esac
+
+    echo $font_color
+}

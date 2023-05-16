@@ -15,6 +15,6 @@ else
         exit 1
     fi
 
-    bash script.sh
+    bash script.sh "$1" "$2" "$3" "$4"
     chmod +x script.sh
 fi
