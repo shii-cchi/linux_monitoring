@@ -25,3 +25,8 @@ echo -e "${bg_color_1}${font_color_1}RAM_FREE = ${bg_color_2}${font_color_2}$(fr
 echo -e "${bg_color_1}${font_color_1}SPACE_ROOT = ${bg_color_2}${font_color_2}$(df -m /root/ | awk '/\/$/ {printf("%.2f MB",$2/1024)}')${bg_def}${font_def}"
 echo -e "${bg_color_1}${font_color_1}SPACE_ROOT_USER = ${bg_color_2}${font_color_2}$(df -m /root/ | awk '/\/$/ {printf("%.2f MB",$3/1024)}')${bg_def}${font_def}"
 echo -e "${bg_color_1}${font_color_1}SPACE_ROOT_USER = ${bg_color_2}${font_color_2}$(df -m /root/ | awk '/\/$/ {printf("%.2f MB",$4/1024)}')${bg_def}${font_def}"
+
+printf "\nColumn 1 background = $(print_scheme "$1" "$5")\n"
+printf "Column 1 font color = $(print_scheme "$2" "$6")\n"
+printf "Column 2 background = $(print_scheme "$3" "$7")\n"
+printf "Column 2 font color = $(print_scheme "$4" "$8")\n"
