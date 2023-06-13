@@ -21,11 +21,7 @@ echo "$(find $1 -type f -exec du -hs {} + | sort -hr -k 1 | head -n 10 | awk 'BE
 echo "TOP 10 executable files of the maximum size arranged in descending order (path, size and MD5 hash of file):"
 echo "$(find $1 -type f -executable -exec du -hs {} + | sort -hr -k 1 | head -n 10 | awk 'BEGIN{i=1}{"md5sum " $2 | getline m5s; close("md5sum"); idx=split(m5s, a, " "); printf "%d - %s, %s, %s\n", i, $2, $1, a[1]; i++}')"
 
-# sleep 10
-time_end=$(date +%s)
+time_end=$(date +%s.%3N)
 
-# printf "$time_end\n"
-# printf "$2\n"
-
-echo "Script execution time (in seconds) = $(("$time_end" - "$2"))"
+echo "Script execution time (in seconds) = $(echo $time_end-$2 | bc)"
 

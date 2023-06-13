@@ -1,6 +1,6 @@
 #!/bin/bash
 
-time_start=$(date +%s)
+time_start=$(date +%s.%3N)
 
 if [ $# -ne 1 ]; then
     if [ $# -eq 0 ]; then
