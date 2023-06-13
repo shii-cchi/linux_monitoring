@@ -17,7 +17,7 @@ FONT_PURPLE_COLOR='\033[35m'
 FONT_BLACK_COLOR='\033[30m'
 
 function get_bg_color {
-    bg_color='\033[0m'
+    bg_color=$DEFAULT
 
     case "$1"  in
         1) bg_color=$BG_WHITE_COLOR;;
@@ -32,7 +32,7 @@ function get_bg_color {
 }
 
 function get_font_color {
-    font_color='\033[0m'
+    font_color=$DEFAULT
 
     case "$1"  in
         1) font_color=$FONT_WHITE_COLOR;;
